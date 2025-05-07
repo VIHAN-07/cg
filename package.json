@@ -1,0 +1,21 @@
+{
+    "name": "graphicslab1",
+    "version": "1.0.2",
+    "description": "Short description here",
+    "main": "index.js",
+    "bin": {
+        "graphicslab1": "./index.js"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "keywords": [
+        "cli",
+        "tool"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "graphicslab1": "^1.0.2"
+    }
+}

@@ -6,20 +6,30 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    // Apply Y-axis rotation only
-    glRotatef(angle, 1, 1, 1);
-glColor3f(1.0f, 0.0f, 0.0f); // Red color for the cube
-    // Draw cube
+    // Apply Y-axis rotation
+    glRotatef(angle, 0, 1, 0);
+
+    glColor3f(1.0f, 0.0f, 0.0f); // Red color for the cube
     glutWireCube(1.5);
 
     glutSwapBuffers();
 }
 
-void timer(int v) {
-    angle += 1.0;
-    if (angle > 360) angle -= 360;
-    glutPostRedisplay();
-    glutTimerFunc(16, timer, 0);
+void keyboard(unsigned char key, int x, int y) {
+    switch (key) {
+        case 'a':  // rotate left
+            angle -= 5.0;
+            if (angle < 0) angle += 360;
+            glutPostRedisplay();
+            break;
+        case 'd':  // rotate right
+            angle += 5.0;
+            if (angle > 360) angle -= 360;
+            glutPostRedisplay();
+            break;
+        case 'q':   // ESC key
+            exit(0);
+    }
 }
 
 void init() {
@@ -27,7 +37,7 @@ void init() {
     glClearColor(0, 0, 0, 1);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(-2, 2, -2, 2, -2, 2); // Simple orthographic view
+    glOrtho(-2, 2, -2, 2, -2, 2);
     glMatrixMode(GL_MODELVIEW);
 }
 
@@ -35,11 +45,11 @@ int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(500, 500);
-    glutCreateWindow("Rotating Cube");
+    glutCreateWindow("Keyboard Rotating Cube");
 
     init();
     glutDisplayFunc(display);
-    glutTimerFunc(0, timer, 0);
+    glutKeyboardFunc(keyboard);
     glutMainLoop();
     return 0;
 }

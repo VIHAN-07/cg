@@ -1,6 +1,6 @@
 {
     "name": "graphicslab1",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Short description here",
     "main": "index.js",
     "bin": {
@@ -16,6 +16,6 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "graphicslab1": "^1.0.2"
+        "graphicslab1": "file:"
     }
 }

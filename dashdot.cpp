@@ -7,7 +7,7 @@ using namespace std;
 void drawDDA(int x0, int y0, int x1, int y1, const string& pattern) {
     float dx = x1 - x0;
     float dy = y1 - y0;
-    float steps = std::max(abs(dx), abs(dy)); // Using std::max like in code 2
+    float steps = max(abs(dx), abs(dy)); // Using std::max like in code 2
     float xInc = dx / steps;
     float yInc = dy / steps;
     float x = x0, y = y0;

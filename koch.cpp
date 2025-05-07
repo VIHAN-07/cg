@@ -39,7 +39,7 @@ void display() {
         // Draw one Koch curve, centered in the viewport, scale to fit
         koch(LEVEL, -0.5f, 0.0f, 0.5f, 0.0f);  // Example for a horizontal line
     glEnd();
-
+                              
     glutSwapBuffers();
 }
 
